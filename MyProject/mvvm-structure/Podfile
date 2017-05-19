@@ -1,0 +1,14 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '9.0'
+
+def using_pods    
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # all pods define here
+  
+end
+
+target 'mvvm-structure' do
+  using_pods
+end
