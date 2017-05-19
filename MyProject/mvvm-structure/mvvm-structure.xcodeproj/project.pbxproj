@@ -101,6 +101,7 @@
 				E253E3BD1ECD8B730076E8CA /* Resources */,
 				F0C0625D049523D2137B13C7 /* [CP] Embed Pods Frameworks */,
 				BB6D1E8085D51834B9A77232 /* [CP] Copy Pods Resources */,
+				E253E3D41ECEFF8D0076E8CA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -173,6 +174,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		E253E3D41ECEFF8D0076E8CA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		E854C7FD8C5B6D8DC8B635F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -376,6 +390,7 @@
 				E253E3D31ECD8B730076E8CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

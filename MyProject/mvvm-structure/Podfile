@@ -6,7 +6,7 @@ def using_pods
   use_frameworks!
 
   # all pods define here
-  
+  pod 'SwiftLint'
 end
 
 target 'mvvm-structure' do

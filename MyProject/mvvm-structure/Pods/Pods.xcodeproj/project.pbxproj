@@ -58,6 +58,14 @@
 			path = "Target Support Files/Pods-mvvm-structure";
 			sourceTree = "<group>";
 		};
+		32A23E08346748F1793F899C5FF672C1 /* SwiftLint */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = SwiftLint;
+			path = SwiftLint;
+			sourceTree = "<group>";
+		};
 		5124117821C7E8641658A82CB9337077 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,9 +79,18 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				9758CC519AE2C57A9659FFC01AAD26F9 /* Pods */,
 				E030C99C8FA5BA79BA14AC1E9610B25A /* Products */,
 				5124117821C7E8641658A82CB9337077 /* Targets Support Files */,
 			);
+			sourceTree = "<group>";
+		};
+		9758CC519AE2C57A9659FFC01AAD26F9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				32A23E08346748F1793F899C5FF672C1 /* SwiftLint */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
