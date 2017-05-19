@@ -16,6 +16,9 @@
 		E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */; };
 		E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */; };
 		E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */; };
+		E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */; };
+		E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */; };
+		E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHBaseAPI.swift; sourceTree = "<group>"; };
 		E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseModel.swift; sourceTree = "<group>"; };
 		E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseError.swift; sourceTree = "<group>"; };
+		E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHAPICaller.swift; sourceTree = "<group>"; };
+		E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostListResponse.swift; sourceTree = "<group>"; };
+		E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -156,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */,
+				E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -165,6 +172,8 @@
 			children = (
 				E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */,
 				E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */,
+				E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */,
+				E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */,
 			);
 			path = ResponseObject;
 			sourceTree = "<group>";
@@ -307,11 +316,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */,
 				E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */,
 				E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */,
 				E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */,
+				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
 				E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */,
+				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
