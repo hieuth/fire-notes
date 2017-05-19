@@ -9,10 +9,10 @@
 /* Begin PBXBuildFile section */
 		7C51C3F131487A801FBD27FA /* Pods_mvvm_structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */; };
 		E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3C21ECD8B730076E8CA /* AppDelegate.swift */; };
-		E253E3C51ECD8B730076E8CA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3C41ECD8B730076E8CA /* RootViewController.swift */; };
 		E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C61ECD8B730076E8CA /* Main.storyboard */; };
 		E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C91ECD8B730076E8CA /* Assets.xcassets */; };
 		E253E3CD1ECD8B730076E8CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */; };
+		E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DA1ECF56170076E8CA /* RootViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,12 +20,12 @@
 		96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-structure.release.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure.release.xcconfig"; sourceTree = "<group>"; };
 		AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253E3BF1ECD8B730076E8CA /* mvvm-structure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mvvm-structure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E253E3C21ECD8B730076E8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E253E3C41ECD8B730076E8CA /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
+		E253E3C21ECD8B730076E8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		E253E3C71ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E253E3C91ECD8B730076E8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E253E3C91ECD8B730076E8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		E253E3CC1ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E253E3CE1ECD8B730076E8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E253E3CE1ECD8B730076E8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		E253E3DA1ECF56170076E8CA /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,16 +78,11 @@
 		E253E3C11ECD8B730076E8CA /* mvvm-structure */ = {
 			isa = PBXGroup;
 			children = (
+				E253E3DC1ECF563A0076E8CA /* Application */,
 				E253E3D81ECF2A8E0076E8CA /* Helper */,
 				E253E3D51ECF2A470076E8CA /* Model */,
 				E253E3D61ECF2A470076E8CA /* View */,
 				E253E3D71ECF2A470076E8CA /* ViewModel */,
-				E253E3C21ECD8B730076E8CA /* AppDelegate.swift */,
-				E253E3C41ECD8B730076E8CA /* RootViewController.swift */,
-				E253E3C61ECD8B730076E8CA /* Main.storyboard */,
-				E253E3C91ECD8B730076E8CA /* Assets.xcassets */,
-				E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */,
-				E253E3CE1ECD8B730076E8CA /* Info.plist */,
 			);
 			path = "mvvm-structure";
 			sourceTree = "<group>";
@@ -102,6 +97,8 @@
 		E253E3D61ECF2A470076E8CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E253E3DD1ECF56650076E8CA /* Storyboard */,
+				E253E3D91ECF56170076E8CA /* Controller */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -118,6 +115,33 @@
 			children = (
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		E253E3D91ECF56170076E8CA /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E253E3DA1ECF56170076E8CA /* RootViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E253E3DC1ECF563A0076E8CA /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E253E3CE1ECD8B730076E8CA /* Info.plist */,
+				E253E3C91ECD8B730076E8CA /* Assets.xcassets */,
+				E253E3C21ECD8B730076E8CA /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E253E3DD1ECF56650076E8CA /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */,
+				E253E3C61ECD8B730076E8CA /* Main.storyboard */,
+			);
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E253E3C51ECD8B730076E8CA /* RootViewController.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
+				E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +295,7 @@
 				E253E3C71ECD8B730076E8CA /* Base */,
 			);
 			name = Main.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */ = {
@@ -279,6 +304,7 @@
 				E253E3CC1ECD8B730076E8CA /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
