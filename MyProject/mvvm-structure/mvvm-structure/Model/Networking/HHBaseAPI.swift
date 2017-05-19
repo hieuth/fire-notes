@@ -35,25 +35,28 @@ class HHBaseAPI {
         configuration.timeoutIntervalForResource = 30 // seconds
         return Alamofire.SessionManager(configuration:configuration)
     }()
-    // MARK: Helper functions
+    // base post
     func post<T: Mappable>(
         route: HTTPRouter,
         parameters: [String: Any]? = nil,
         headers: HTTPHeaders? = nil) -> Promise<T?> {
         return self.httpOperation(method: .post, route: route, parameters: parameters, headers: headers)
     }
+    // base get
     func get<T: Mappable>(
         route: HTTPRouter,
         parameters: [String: Any]? = nil,
         headers: HTTPHeaders? = nil) -> Promise<T?> {
         return self.httpOperation(method: .get, route: route, parameters : parameters, headers: headers)
     }
+    // uploading
     func sendMultipartData<T: Mappable>(
         route: HTTPRouter,
         images: [(name: String, data: Data)],
         params: [(name: String, data: Data)]) -> Promise<T?> {
         return Promise<T?> {(fullfill, reject) -> Void in
-            upload(multipartFormData: { (multipartFormData) in // prepare input
+            upload(multipartFormData: { (multipartFormData) in
+                // PREPARE INPUTS
                 // add images
                 for image in images {
                     multipartFormData.append(
@@ -68,9 +71,10 @@ class HHBaseAPI {
                     print("\(param.name): \(String.init(data: param.data, encoding: .utf8) ?? "nil" )")
                     multipartFormData.append(param.data, withName: param.name)
                 }
-            }, to: route.URLString, headers: nil, encodingCompletion: { (encodingResult) in // encoding the input
+            }, to: route.URLString, headers: nil, encodingCompletion: { (encodingResult) in
+                // ENCODE THE INPUTS
                 switch encodingResult {
-                // fail to encoding
+                // fail to encode
                 case .failure(let error):
                     print("Response: \(route.URLString)\n \(error)")
                     let error = NSError(domain: "Encoding error",
@@ -78,7 +82,9 @@ class HHBaseAPI {
                                         userInfo: [NSLocalizedDescriptionKey: "\(error)"])
                     reject(error)
                     break
-                case .success(let upload, _, _): // uploading....
+                case .success(let upload, _, _):
+                    // success to encode
+                    // BEGIN UPLOAD
                     upload.responseJSON(completionHandler: { (response) in
                         switch response.result {
                         case .success(let jsonValue):
@@ -103,20 +109,18 @@ class HHBaseAPI {
         headers: HTTPHeaders? = nil) -> Promise<T?> {
         print("Request: \(route.URLString)\n params: \(String(describing: parameters))")
         return Promise<T?> { (fulfill, reject) -> Void in
-            func parsingError(erroString: String) -> NSError {
-                return NSError(domain: "HTTP parsing error", code: -100, userInfo: nil)
-            }
             request(route.URLString,
                     method: method,
                     parameters: parameters,
                     headers: headers).responseJSON { (response) -> Void in
-                print("Response: \(route.URLString)\n"
-                    + " \(response.result.value as Any)")   // result of response serialization
-                if let error = response.result.error {
-                    reject(error) //network error
-                } else {
-                    self.handleJsonValue(jsonValue: response.result.value, fulfill: fulfill, reject: reject)
-                }
+                        // result of response serialization
+                        print("Response: \(route.URLString)\n"
+                            + " \(response.result.value as Any)")
+                        if let error = response.result.error {
+                            reject(error) //network error
+                        } else {
+                            self.handleJsonValue(jsonValue: response.result.value, fulfill: fulfill, reject: reject)
+                        }
             }
         }
     }
