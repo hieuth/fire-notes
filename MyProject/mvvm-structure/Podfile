@@ -7,6 +7,9 @@ def using_pods
 
   # all pods define here
   pod 'SwiftLint'
+  pod 'Alamofire', '~> 4.4'
+  pod 'PromiseKit', '~> 4.2.0'
+  pod 'ObjectMapper', '~> 2.2'
 end
 
 target 'mvvm-structure' do
