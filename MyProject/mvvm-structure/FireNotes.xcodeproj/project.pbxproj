@@ -21,6 +21,12 @@
 		E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */; };
 		E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */; };
 		E2545FC51ECFE96000CDA409 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */; };
+		E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */; };
+		E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */; };
+		E2545FCC1ECFFC3400CDA409 /* HHNoteItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FCB1ECFFC3400CDA409 /* HHNoteItem.swift */; };
+		E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FCE1ECFFD6000CDA409 /* HHUser.swift */; };
+		E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */; };
+		E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +50,14 @@
 		E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostListResponse.swift; sourceTree = "<group>"; };
 		E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostResponse.swift; sourceTree = "<group>"; };
 		E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHLoginViewController.swift; sourceTree = "<group>"; };
+		E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHNotesViewController.swift; sourceTree = "<group>"; };
+		E2545FCB1ECFFC3400CDA409 /* HHNoteItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHNoteItem.swift; sourceTree = "<group>"; };
+		E2545FCD1ECFFC9000CDA409 /* FireNotes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FireNotes-Bridging-Header.h"; sourceTree = "<group>"; };
+		E2545FCE1ECFFD6000CDA409 /* HHUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHUser.swift; sourceTree = "<group>"; };
+		E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
+		E2545FD41ED0066900CDA409 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
+		E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +128,7 @@
 		E253E3D51ECF2A470076E8CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2545FCA1ECFFC1500CDA409 /* DatabaseObject */,
 				E253E3E11ECF6B390076E8CA /* ResponseObject */,
 				E253E3DE1ECF5E650076E8CA /* Networking */,
 			);
@@ -139,6 +154,8 @@
 		E253E3D81ECF2A8E0076E8CA /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E2545FD31ED0066900CDA409 /* UIAlertController+Blocks */,
+				E2545FD01ED005DB00CDA409 /* Extensions */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -147,6 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				E253E3DA1ECF56170076E8CA /* RootViewController.swift */,
+				E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */,
+				E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -157,6 +176,7 @@
 				E253E3CE1ECD8B730076E8CA /* Info.plist */,
 				E253E3C91ECD8B730076E8CA /* Assets.xcassets */,
 				E253E3C21ECD8B730076E8CA /* AppDelegate.swift */,
+				E2545FCD1ECFFC9000CDA409 /* FireNotes-Bridging-Header.h */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -188,6 +208,32 @@
 				E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */,
 			);
 			path = ResponseObject;
+			sourceTree = "<group>";
+		};
+		E2545FCA1ECFFC1500CDA409 /* DatabaseObject */ = {
+			isa = PBXGroup;
+			children = (
+				E2545FCB1ECFFC3400CDA409 /* HHNoteItem.swift */,
+				E2545FCE1ECFFD6000CDA409 /* HHUser.swift */,
+			);
+			path = DatabaseObject;
+			sourceTree = "<group>";
+		};
+		E2545FD01ED005DB00CDA409 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		E2545FD31ED0066900CDA409 /* UIAlertController+Blocks */ = {
+			isa = PBXGroup;
+			children = (
+				E2545FD41ED0066900CDA409 /* UIAlertController+Blocks.h */,
+				E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */,
+			);
+			path = "UIAlertController+Blocks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,7 +337,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
+			shellScript = "";
 		};
 		E854C7FD8C5B6D8DC8B635F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -330,14 +376,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */,
 				E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */,
 				E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */,
+				E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */,
 				E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */,
 				E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */,
+				E2545FCC1ECFFC3400CDA409 /* HHNoteItem.swift in Sources */,
+				E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */,
 				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
 				E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */,
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
+				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
+				E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hieuhuynh.firenotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mvvm-structure/Application/FireNotes-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -484,6 +537,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.hieuhuynh.firenotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "mvvm-structure/Application/FireNotes-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
