@@ -11,14 +11,15 @@ import UIKit
 class RootViewController: UIViewController {
     // IBActions
     @IBAction func buttonGetPostsPressed() {
-        HHAPICaller.shared.getAllPosts().then { (listResponse) -> () in
-            if let items = listResponse?.items {
-                print(items.count)
-            } else {
-                print("failed to map")
-            }
-        }.catch { (error) in
-            print("Failed to get posts: \(error)")
-        }
+        HHAPICaller.shared.getListUsers()
+//        HHAPICaller.shared.getAllPosts().then { (listResponse) -> Void in
+//            if let items = listResponse?.items {
+//                print(items.count)
+//            } else {
+//                print("failed to map")
+//            }
+//        }.catch { (error) in
+//            print("Failed to get posts: \(error)")
+//        }
     }
 }

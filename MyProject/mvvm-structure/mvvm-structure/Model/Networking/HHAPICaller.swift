@@ -12,7 +12,8 @@ import ObjectMapper
 
 class HHAPICaller: HHBaseAPI {
     static let shared = HHAPICaller()
-    func getAllPosts() -> Promise<HHPostListResponse?> {
-        return super.get(route: .allPosts)
+
+    /// A function to get a list of users
+    func getListUsers() {
     }
 }

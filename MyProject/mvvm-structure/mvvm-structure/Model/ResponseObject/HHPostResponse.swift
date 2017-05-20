@@ -11,13 +11,13 @@ import ObjectMapper
 
 class HHPostResponse: HHResponseModel {
     var userId: Int?
-    var id: Int?
+    var postId: Int?
     var title: String?
     var body: String?
     override func mapping(map: Map) {
         super.mapping(map: map)
         userId <- map["userId"]
-        id <- map["id"]
+        postId <- map["id"]
         title <- map["title"]
         body <- map["body"]
     }

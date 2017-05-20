@@ -11,22 +11,27 @@ import PromiseKit
 import Alamofire
 import ObjectMapper
 
+/// The route for services
 public enum HTTPRouter {
-    // base url
+    /// Base URL for the services
     private static var baseURLString: String {
-        return "https://jsonplaceholder.typicode.com/"
+        return "https://reqres.in/"
     }
+    /// the full endpoint of the route
     public var URLString: String {
         let path: String = {
             switch self {
-            case .allPosts:
-                return "posts"
+            case .listUsers:
+                return "api/users?page=2"
+            case .singleUser(let userId):
+                return "api/users/\(userId)"
             }
         }()
         return HTTPRouter.baseURLString + path
     }
     // APIs
-    case allPosts
+    case listUsers
+    case singleUser(userId: Int)
 }
 
 class HHBaseAPI {
@@ -35,21 +40,39 @@ class HHBaseAPI {
         configuration.timeoutIntervalForResource = 30 // seconds
         return Alamofire.SessionManager(configuration:configuration)
     }()
-    // base post
+    /// A base function to send a POST request
+    ///
+    /// - Parameters:
+    ///   - route: the route of the request
+    ///   - parameters: parameters of the request as a dictionary, nil by default
+    ///   - headers: headers of the request as a dictionary, nil by default
+    /// - Returns: the promise for the request
     func post<T: Mappable>(
         route: HTTPRouter,
         parameters: [String: Any]? = nil,
         headers: HTTPHeaders? = nil) -> Promise<T?> {
         return self.httpOperation(method: .post, route: route, parameters: parameters, headers: headers)
     }
-    // base get
+    /// A base function to send a GET request
+    ///
+    /// - Parameters:
+    ///   - route: the route of the request
+    ///   - parameters: parameters of the request, nil by default
+    ///   - headers: headers of the request, nil by default
+    /// - Returns: the promise for the request
     func get<T: Mappable>(
         route: HTTPRouter,
         parameters: [String: Any]? = nil,
         headers: HTTPHeaders? = nil) -> Promise<T?> {
         return self.httpOperation(method: .get, route: route, parameters : parameters, headers: headers)
     }
-    // uploading
+    /// Method to send multipartData
+    ///
+    /// - Parameters:
+    ///   - route: route of the request
+    ///   - images: array of tuples with image names and image datas
+    ///   - params: parameters of the request
+    /// - Returns: the promise of the request
     func sendMultipartData<T: Mappable>(
         route: HTTPRouter,
         images: [(name: String, data: Data)],
@@ -102,6 +125,14 @@ class HHBaseAPI {
             })
         }
     }
+    /// Call this function to send a http request
+    ///
+    /// - Parameters:
+    ///   - method: Method of request e.g. POST or GET
+    ///   - route: Route of the request
+    ///   - parameters: parameters of the request, nil by default
+    ///   - headers: headers of the request, nil by default
+    /// - Returns: the returned promise
     private func httpOperation<T: Mappable>(
         method: HTTPMethod,
         route: HTTPRouter,
@@ -124,33 +155,21 @@ class HHBaseAPI {
             }
         }
     }
+    /// Handle returned jsonValue
+    ///
+    /// - Parameters:
+    ///   - jsonValue: the return jsonValue
+    ///   - fulfill: the closure to call when fullfill
+    ///   - response: the response object
+    ///   - reject: the closure to call when reject
+    ///   - error: the error of the request
     func handleJsonValue<T: Mappable>(
         jsonValue:Any?,
-        fulfill: @escaping (T?) -> Void,
-        reject: @escaping (Error) -> Void ) {
+        fulfill: @escaping (_ response: T?) -> Void,
+        reject: @escaping (_ error: Error) -> Void ) {
         // handle success request, map data
         if let response = Mapper<T>().map(JSONObject: jsonValue) {
-            let res = response as? HHResponseModel
-            if let code = res?.code, code >= 300 {
-                var errorCode = code
-                if let errCode = res?.errors?.first?.code {
-                    errorCode = errCode
-                }
-                let anError = NSError(domain: "Internal Server Error",
-                                      code: errorCode ,
-                                      userInfo: [NSLocalizedDescriptionKey: "Error: \(code)"])
-                // return internal error
-                reject(anError)
-                // connect successful with no error
-            } else if let tokenError = res?.tokenError {//access token is not valid
-                let anError = NSError(domain: "Internal Server Error",
-                                      code: 401 ,
-                                      userInfo: [NSLocalizedDescriptionKey: tokenError])
-                // return internal error
-                reject(anError)
-            } else {
-                fulfill(response)
-            }
+            fulfill(response)
         } else {
             let err = NSError(domain: "Parsing Error", code: 400, userInfo: nil)
             reject(err)
