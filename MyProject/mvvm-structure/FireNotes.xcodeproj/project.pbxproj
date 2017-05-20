@@ -31,6 +31,8 @@
 		E2DBB4D81ED00A20005DFA33 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */; };
 		E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */; };
 		E2DBB4DC1ED00A7D005DFA33 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4DB1ED00A7D005DFA33 /* NSObjectExtensions.swift */; };
+		E2DBB4DF1ED036B5005DFA33 /* HHPaddingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4DE1ED036B4005DFA33 /* HHPaddingTextField.swift */; };
+		E2DBB4E11ED037DB005DFA33 /* HHNoteComposerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4E01ED037DB005DFA33 /* HHNoteComposerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +69,8 @@
 		E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		E2DBB4DB1ED00A7D005DFA33 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
+		E2DBB4DE1ED036B4005DFA33 /* HHPaddingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPaddingTextField.swift; sourceTree = "<group>"; };
+		E2DBB4E01ED037DB005DFA33 /* HHNoteComposerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHNoteComposerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 		E253E3D61ECF2A470076E8CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2DBB4DD1ED0369C005DFA33 /* TextField */,
 				E2DBB4D31ED00A20005DFA33 /* CustomViews */,
 				E253E3DD1ECF56650076E8CA /* Storyboard */,
 				E253E3D91ECF56170076E8CA /* Controller */,
@@ -177,6 +182,7 @@
 				E253E3DA1ECF56170076E8CA /* RootViewController.swift */,
 				E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */,
 				E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */,
+				E2DBB4E01ED037DB005DFA33 /* HHNoteComposerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -264,6 +270,14 @@
 				E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */,
 			);
 			path = LoadingView;
+			sourceTree = "<group>";
+		};
+		E2DBB4DD1ED0369C005DFA33 /* TextField */ = {
+			isa = PBXGroup;
+			children = (
+				E2DBB4DE1ED036B4005DFA33 /* HHPaddingTextField.swift */,
+			);
+			path = TextField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -415,6 +429,7 @@
 				E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */,
 				E2DBB4DC1ED00A7D005DFA33 /* NSObjectExtensions.swift in Sources */,
 				E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */,
+				E2DBB4E11ED037DB005DFA33 /* HHNoteComposerViewController.swift in Sources */,
 				E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */,
 				E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */,
 				E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */,
@@ -429,6 +444,7 @@
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
 				E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */,
+				E2DBB4DF1ED036B5005DFA33 /* HHPaddingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

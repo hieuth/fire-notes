@@ -53,12 +53,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColorFromUIColor">
-                                        <color key="value" red="0.85957932469999998" green="0.40118402240000001" blue="0.29446059470000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
-                                        <integer key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                         <integer key="value" value="6"/>
                                     </userDefinedRuntimeAttribute>
@@ -189,6 +183,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u7B-ni-otg">
                             <connections>
                                 <action selector="addButtonDidTouch:" destination="inn-iE-rPd" id="hNS-xv-yTu"/>
+                                <segue destination="wpm-Ad-yZi" kind="show" id="9HI-Z1-jMd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -196,6 +191,63 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aCQ-Gr-Q8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1982" y="30"/>
+        </scene>
+        <!--New note-->
+        <scene sceneID="pNj-oW-MAz">
+            <objects>
+                <viewController id="wpm-Ad-yZi" customClass="HHNoteComposerViewController" customModule="FireNotes" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5bM-Sb-Y2e"/>
+                        <viewControllerLayoutGuide type="bottom" id="xRv-6x-6AV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6d0-JQ-COS">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mMF-Vy-iNQ" customClass="HHPaddingTextField" customModule="FireNotes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="8" width="375" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hbv-Nr-npC"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="kle-dx-muW">
+                                <rect key="frame" x="0.0" y="54" width="375" height="541"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="kle-dx-muW" firstAttribute="leading" secondItem="6d0-JQ-COS" secondAttribute="leading" id="3kw-t0-8JH"/>
+                            <constraint firstAttribute="trailing" secondItem="mMF-Vy-iNQ" secondAttribute="trailing" id="UZZ-ac-e86"/>
+                            <constraint firstAttribute="trailing" secondItem="kle-dx-muW" secondAttribute="trailing" id="Ulc-yt-IPY"/>
+                            <constraint firstItem="mMF-Vy-iNQ" firstAttribute="leading" secondItem="6d0-JQ-COS" secondAttribute="leading" id="c0v-pa-Kcv"/>
+                            <constraint firstItem="xRv-6x-6AV" firstAttribute="top" secondItem="kle-dx-muW" secondAttribute="bottom" constant="8" id="tZR-FP-OUf"/>
+                            <constraint firstItem="mMF-Vy-iNQ" firstAttribute="top" secondItem="5bM-Sb-Y2e" secondAttribute="bottom" constant="8" id="xho-mz-0xy"/>
+                            <constraint firstItem="kle-dx-muW" firstAttribute="top" secondItem="mMF-Vy-iNQ" secondAttribute="bottom" constant="2" id="zMQ-af-sKN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="New note" id="5gg-jS-SbY">
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="WHv-ET-Z1S">
+                            <connections>
+                                <action selector="doneButtonPressed" destination="wpm-Ad-yZi" id="Sja-nV-IcK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="contentTextView" destination="kle-dx-muW" id="r7S-Y3-JCt"/>
+                        <outlet property="textViewToBotConstraint" destination="tZR-FP-OUf" id="qLX-MU-uec"/>
+                        <outlet property="titleTextField" destination="mMF-Vy-iNQ" id="2d7-bx-fQm"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zY8-oR-lxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="28.335832083958024"/>
         </scene>
     </scenes>
 </document>
