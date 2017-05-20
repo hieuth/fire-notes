@@ -146,7 +146,7 @@ extension HHNotesViewController: HHNoteComposerVCDelegate {
             return
         }
         let noteObject = HHNoteItem(name: title ?? "", content: content ?? "", addedByUser: self.user.email)
-        items.append(noteObject)
+        items.insert(noteObject, at: 0)
         self.tableView.reloadData()
     }
 }
