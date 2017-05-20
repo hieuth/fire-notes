@@ -27,6 +27,10 @@
 		E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FCE1ECFFD6000CDA409 /* HHUser.swift */; };
 		E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */; };
 		E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */; };
+		E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */; };
+		E2DBB4D81ED00A20005DFA33 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */; };
+		E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */; };
+		E2DBB4DC1ED00A7D005DFA33 /* NSObjectExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4DB1ED00A7D005DFA33 /* NSObjectExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		E2545FD41ED0066900CDA409 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		E2DBB4D11ED00863005DFA33 /* FireNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireNotes.entitlements; sourceTree = SOURCE_ROOT; };
+		E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		E2DBB4DB1ED00A7D005DFA33 /* NSObjectExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSObjectExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +148,7 @@
 		E253E3D61ECF2A470076E8CA /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E2DBB4D31ED00A20005DFA33 /* CustomViews */,
 				E253E3DD1ECF56650076E8CA /* Storyboard */,
 				E253E3D91ECF56170076E8CA /* Controller */,
 			);
@@ -224,6 +233,8 @@
 		E2545FD01ED005DB00CDA409 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				E2DBB4DB1ED00A7D005DFA33 /* NSObjectExtensions.swift */,
+				E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */,
 				E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */,
 			);
 			path = Extensions;
@@ -236,6 +247,23 @@
 				E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */,
 			);
 			path = "UIAlertController+Blocks";
+			sourceTree = "<group>";
+		};
+		E2DBB4D31ED00A20005DFA33 /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				E2DBB4D41ED00A20005DFA33 /* LoadingView */,
+			);
+			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		E2DBB4D41ED00A20005DFA33 /* LoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */,
+				E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */,
+			);
+			path = LoadingView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -312,6 +340,7 @@
 				E2545FC51ECFE96000CDA409 /* GoogleService-Info.plist in Resources */,
 				E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */,
 				E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */,
+				E2DBB4D81ED00A20005DFA33 /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +413,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */,
+				E2DBB4DC1ED00A7D005DFA33 /* NSObjectExtensions.swift in Sources */,
 				E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */,
 				E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */,
 				E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */,
@@ -391,7 +421,9 @@
 				E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */,
 				E2545FCC1ECFFC3400CDA409 /* HHNoteItem.swift in Sources */,
 				E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */,
+				E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */,
 				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
+				E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
 				E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */,
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,

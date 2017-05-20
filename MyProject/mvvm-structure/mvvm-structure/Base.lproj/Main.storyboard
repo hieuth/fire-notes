@@ -85,7 +85,6 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="omJ-1F-VIB"/>
-                                    <segue destination="I37-kN-Vg2" kind="showDetail" identifier="LoginToList" action="showViewController:sender:" id="VIu-7j-Lnc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -110,6 +109,7 @@
                     <connections>
                         <outlet property="emailField" destination="NEO-zN-IAV" id="2ZR-eY-BDY"/>
                         <outlet property="passwordField" destination="IAu-qr-NpG" id="PL0-9W-8Pw"/>
+                        <segue destination="I37-kN-Vg2" kind="show" identifier="LoginToList" id="jeD-nT-oWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -121,7 +121,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I37-kN-Vg2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="57X-xF-OHW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="57X-xF-OHW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

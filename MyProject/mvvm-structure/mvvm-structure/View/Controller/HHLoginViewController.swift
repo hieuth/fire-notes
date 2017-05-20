@@ -23,11 +23,23 @@ class HHLoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     @IBAction func loginPressed() {
-//        performSegue(withIdentifier: loginToList, sender: nil)
-
         // perform login
-        //FIRAuth.auth()!.signIn(withEmail: emailField.text!,
-         //                      password: passwordField.text!)
+        LoadingView.show("Logging in...")
+        FIRAuth.auth()!.signIn(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, error) in
+            DispatchQueue.main.async {
+                LoadingView.hide()
+            }
+            guard error == nil, let usr = user else {
+                if let strongSelf = self {
+                    UIAlertController.showAlert(message: error!.localizedDescription, from: strongSelf)
+                }
+                return
+            }
+            if let strongSelf = self {
+                strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
+            }
+            print(usr.debugDescription)
+        }
     }
     // MARK: - Overriden 
     override func viewDidLoad() {
@@ -40,9 +52,11 @@ class HHLoginViewController: UIViewController {
     ///   - email: email
     ///   - password: password
     fileprivate func signupUser(email: String, password: String) {
+        LoadingView.show()
         FIRAuth.auth()!.createUser(
             withEmail: email,
             password: password) { _, error in
+                LoadingView.hide()
                 if error == nil {
                     UIAlertController.showAlert(withTitle: "Congrats!",message: "Your account was created", from: self)
                 } else {
