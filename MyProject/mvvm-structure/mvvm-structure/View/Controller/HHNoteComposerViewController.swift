@@ -7,10 +7,9 @@
 //
 
 import UIKit
-//import IQKeyboardManagerSwift
 
 protocol HHNoteComposerVCDelegate {
-    func noteComposerDidFinishComposing(withTitle: String?, content: String?)
+    func noteComposerDidFinishComposing(withTitle title: String?, content: String?)
 }
 
 class HHNoteComposerViewController: UIViewController {
@@ -51,7 +50,7 @@ class HHNoteComposerViewController: UIViewController {
     }
     @objc fileprivate func handleKeyboardWillShow(notification: Notification) {
         if let keyboardValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue  {
-            textViewToBotConstraint.constant = keyboardValue.cgRectValue.size.height + 8
+            textViewToBotConstraint.constant = keyboardValue.cgRectValue.size.height
         }
     }
     @objc fileprivate func handleKeyboardWillHide(notification: Notification) {

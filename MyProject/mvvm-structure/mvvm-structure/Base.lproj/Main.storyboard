@@ -182,7 +182,6 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u7B-ni-otg">
                             <connections>
-                                <action selector="addButtonDidTouch:" destination="inn-iE-rPd" id="hNS-xv-yTu"/>
                                 <segue destination="wpm-Ad-yZi" kind="show" id="9HI-Z1-jMd"/>
                             </connections>
                         </barButtonItem>

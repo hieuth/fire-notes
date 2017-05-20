@@ -28,37 +28,20 @@ class HHNotesViewController: UITableViewController {
 //                                                 action: #selector(userCountButtonDidTouch))
 //        userCountBarButtonItem.tintColor = UIColor.white
 //        navigationItem.leftBarButtonItem = userCountBarButtonItem
+        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+            guard let user = user else { return }
+            self.user = User(authData: user)
+//            let currentUserRef = self.usersRef.child(self.user.uid)
+//            currentUserRef.setValue(self.user.email)
+//            currentUserRef.onDisconnectRemoveValue()
+        }
+
         user = User(uid: "FakeId", email: "hungry@person.food")
     }
-    // MARK: UITableView Delegate methods
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
-    }
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
-        let groceryItem = items[indexPath.row]
-        cell.textLabel?.text = groceryItem.name
-        cell.detailTextLabel?.text = groceryItem.addedByUser
-//        toggleCellCheckbox(cell, isCompleted: groceryItem.completed)
-        return cell
-    }
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            items.remove(at: indexPath.row)
-            tableView.reloadData()
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let noteComposerVC = segue.destination as? HHNoteComposerViewController {
+            noteComposerVC.delegate = self
         }
-    }
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard tableView.cellForRow(at: indexPath) != nil else { return }
-//        var groceryItem = items[indexPath.row]
-//        let toggledCompletion = !groceryItem.completed
-        
-//        toggleCellCheckbox(cell, isCompleted: toggledCompletion)
-//        groceryItem.completed = toggledCompletion
-        tableView.reloadData()
     }
     
     func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool) {
@@ -99,7 +82,7 @@ class HHNotesViewController: UITableViewController {
             title: "Save",
             style: .default) { action in                
                 let textField = alert.textFields![0]
-                let groceryItem = HHNoteItem(name: textField.text!,
+                let groceryItem = HHNoteItem(name: textField.text!, content: "",
                                              addedByUser: self.user.email)
                 self.items.append(groceryItem)
                 self.tableView.reloadData()
@@ -122,4 +105,48 @@ class HHNotesViewController: UITableViewController {
 
     // MARK - fileprivate
     
+}
+// MARK: UITableView Delegate methods
+extension HHNotesViewController {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
+        let noteItem = items[indexPath.row]
+        cell.textLabel?.text = noteItem.name
+        cell.detailTextLabel?.text = noteItem.lastUpdatedDateString + " \(noteItem.content)"
+        return cell
+    }
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            items.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard tableView.cellForRow(at: indexPath) != nil else { return }
+        //        var groceryItem = items[indexPath.row]
+        //        let toggledCompletion = !groceryItem.completed
+        
+        //        toggleCellCheckbox(cell, isCompleted: toggledCompletion)
+        //        groceryItem.completed = toggledCompletion
+        tableView.reloadData()
+    }
+}
+// MARK: HHNoteComposerVCDelegate
+extension HHNotesViewController: HHNoteComposerVCDelegate {
+    func noteComposerDidFinishComposing(withTitle title: String?, content: String?) {
+        let titleCount = title?.characters.count ?? 0
+        let contentCount = content?.characters.count ?? 0
+        guard (titleCount + contentCount) > 0 else {
+            return
+        }
+        let noteObject = HHNoteItem(name: title ?? "", content: content ?? "", addedByUser: self.user.email)
+        items.append(noteObject)
+        self.tableView.reloadData()
+    }
 }

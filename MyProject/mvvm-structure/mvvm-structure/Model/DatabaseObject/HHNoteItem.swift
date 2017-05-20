@@ -16,12 +16,17 @@ struct HHNoteItem {
     let content: String
     let lastUpdated: Date
     let ref: FIRDatabaseReference?
-    init(name: String, addedByUser: String, key: String = "") {
+    var lastUpdatedDateString: String {
+        let dateFormat = DateFormatter.init()
+        dateFormat.dateFormat = "dd/MM/YY"
+        return dateFormat.string(from: lastUpdated)
+    }
+    init(name: String, content: String, addedByUser: String, key: String = "") {
         self.key = key
         self.name = name
         self.addedByUser = addedByUser
         self.ref = nil
-        self.content = ""
+        self.content = content
         self.lastUpdated = Date()
     }
     init(snapshot: FIRDataSnapshot) {
