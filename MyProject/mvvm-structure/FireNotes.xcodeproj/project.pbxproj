@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		35972E00E27AA13C41B0C114 /* Pods_FireNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E75D0870592900C67C242F /* Pods_FireNotes.framework */; };
 		7C51C3F131487A801FBD27FA /* Pods_mvvm_structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */; };
 		E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3C21ECD8B730076E8CA /* AppDelegate.swift */; };
 		E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C61ECD8B730076E8CA /* Main.storyboard */; };
@@ -19,12 +20,16 @@
 		E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */; };
 		E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */; };
 		E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */; };
+		E2545FC51ECFE96000CDA409 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1395529FDCB67FE74CABD4D4 /* Pods-mvvm-structure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-structure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure.debug.xcconfig"; sourceTree = "<group>"; };
+		8826E333525896117383A0BA /* Pods-FireNotes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireNotes.release.xcconfig"; path = "Pods/Target Support Files/Pods-FireNotes/Pods-FireNotes.release.xcconfig"; sourceTree = "<group>"; };
 		96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-structure.release.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure.release.xcconfig"; sourceTree = "<group>"; };
 		AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B660D86FBDB5B0BC79A5CF12 /* Pods-FireNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireNotes/Pods-FireNotes.debug.xcconfig"; sourceTree = "<group>"; };
+		D0E75D0870592900C67C242F /* Pods_FireNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253E3BF1ECD8B730076E8CA /* FireNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253E3C21ECD8B730076E8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		E253E3C71ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -38,6 +43,7 @@
 		E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHAPICaller.swift; sourceTree = "<group>"; };
 		E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostListResponse.swift; sourceTree = "<group>"; };
 		E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostResponse.swift; sourceTree = "<group>"; };
+		E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +52,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C51C3F131487A801FBD27FA /* Pods_mvvm_structure.framework in Frameworks */,
+				35972E00E27AA13C41B0C114 /* Pods_FireNotes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */,
+				D0E75D0870592900C67C242F /* Pods_FireNotes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -65,6 +73,8 @@
 			children = (
 				1395529FDCB67FE74CABD4D4 /* Pods-mvvm-structure.debug.xcconfig */,
 				96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */,
+				B660D86FBDB5B0BC79A5CF12 /* Pods-FireNotes.debug.xcconfig */,
+				8826E333525896117383A0BA /* Pods-FireNotes.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -90,6 +100,7 @@
 		E253E3C11ECD8B730076E8CA /* FireNotes */ = {
 			isa = PBXGroup;
 			children = (
+				E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */,
 				E253E3DC1ECF563A0076E8CA /* Application */,
 				E253E3D81ECF2A8E0076E8CA /* Helper */,
 				E253E3D51ECF2A470076E8CA /* Model */,
@@ -245,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E253E3CD1ECD8B730076E8CA /* LaunchScreen.storyboard in Resources */,
+				E2545FC51ECFE96000CDA409 /* GoogleService-Info.plist in Resources */,
 				E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */,
 				E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */,
 			);
@@ -265,7 +277,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FireNotes/Pods-FireNotes-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E253E3D41ECEFF8D0076E8CA /* ShellScript */ = {
@@ -308,7 +320,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FireNotes/Pods-FireNotes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -448,7 +460,7 @@
 		};
 		E253E3D21ECD8B730076E8CA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1395529FDCB67FE74CABD4D4 /* Pods-mvvm-structure.debug.xcconfig */;
+			baseConfigurationReference = B660D86FBDB5B0BC79A5CF12 /* Pods-FireNotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 48MS5X5EU8;
@@ -463,7 +475,7 @@
 		};
 		E253E3D31ECD8B730076E8CA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */;
+			baseConfigurationReference = 8826E333525896117383A0BA /* Pods-FireNotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 48MS5X5EU8;
