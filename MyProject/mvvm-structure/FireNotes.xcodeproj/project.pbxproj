@@ -25,7 +25,7 @@
 		1395529FDCB67FE74CABD4D4 /* Pods-mvvm-structure.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-structure.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure.debug.xcconfig"; sourceTree = "<group>"; };
 		96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mvvm-structure.release.xcconfig"; path = "Pods/Target Support Files/Pods-mvvm-structure/Pods-mvvm-structure.release.xcconfig"; sourceTree = "<group>"; };
 		AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E253E3BF1ECD8B730076E8CA /* mvvm-structure.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mvvm-structure.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E253E3BF1ECD8B730076E8CA /* FireNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253E3C21ECD8B730076E8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		E253E3C71ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E253E3C91ECD8B730076E8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		E253E3B61ECD8B730076E8CA = {
 			isa = PBXGroup;
 			children = (
-				E253E3C11ECD8B730076E8CA /* mvvm-structure */,
+				E253E3C11ECD8B730076E8CA /* FireNotes */,
 				E253E3C01ECD8B730076E8CA /* Products */,
 				92DB39F68909B336784C742C /* Pods */,
 				7DA7B211B61BFEF818DD74D9 /* Frameworks */,
@@ -82,12 +82,12 @@
 		E253E3C01ECD8B730076E8CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E253E3BF1ECD8B730076E8CA /* mvvm-structure.app */,
+				E253E3BF1ECD8B730076E8CA /* FireNotes.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E253E3C11ECD8B730076E8CA /* mvvm-structure */ = {
+		E253E3C11ECD8B730076E8CA /* FireNotes */ = {
 			isa = PBXGroup;
 			children = (
 				E253E3DC1ECF563A0076E8CA /* Application */,
@@ -96,6 +96,7 @@
 				E253E3D61ECF2A470076E8CA /* View */,
 				E253E3D71ECF2A470076E8CA /* ViewModel */,
 			);
+			name = FireNotes;
 			path = "mvvm-structure";
 			sourceTree = "<group>";
 		};
@@ -181,9 +182,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E253E3BE1ECD8B730076E8CA /* mvvm-structure */ = {
+		E253E3BE1ECD8B730076E8CA /* FireNotes */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E253E3D11ECD8B730076E8CA /* Build configuration list for PBXNativeTarget "mvvm-structure" */;
+			buildConfigurationList = E253E3D11ECD8B730076E8CA /* Build configuration list for PBXNativeTarget "FireNotes" */;
 			buildPhases = (
 				E854C7FD8C5B6D8DC8B635F8 /* [CP] Check Pods Manifest.lock */,
 				E253E3BB1ECD8B730076E8CA /* Sources */,
@@ -197,9 +198,9 @@
 			);
 			dependencies = (
 			);
-			name = "mvvm-structure";
+			name = FireNotes;
 			productName = "mvvm-structure";
-			productReference = E253E3BF1ECD8B730076E8CA /* mvvm-structure.app */;
+			productReference = E253E3BF1ECD8B730076E8CA /* FireNotes.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -219,7 +220,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E253E3BA1ECD8B730076E8CA /* Build configuration list for PBXProject "mvvm-structure" */;
+			buildConfigurationList = E253E3BA1ECD8B730076E8CA /* Build configuration list for PBXProject "FireNotes" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -232,7 +233,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E253E3BE1ECD8B730076E8CA /* mvvm-structure */,
+				E253E3BE1ECD8B730076E8CA /* FireNotes */,
 			);
 		};
 /* End PBXProject section */
@@ -473,7 +474,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E253E3BA1ECD8B730076E8CA /* Build configuration list for PBXProject "mvvm-structure" */ = {
+		E253E3BA1ECD8B730076E8CA /* Build configuration list for PBXProject "FireNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E253E3CF1ECD8B730076E8CA /* Debug */,
@@ -482,7 +483,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E253E3D11ECD8B730076E8CA /* Build configuration list for PBXNativeTarget "mvvm-structure" */ = {
+		E253E3D11ECD8B730076E8CA /* Build configuration list for PBXNativeTarget "FireNotes" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E253E3D21ECD8B730076E8CA /* Debug */,
