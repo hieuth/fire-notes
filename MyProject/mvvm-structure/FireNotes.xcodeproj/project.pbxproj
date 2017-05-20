@@ -216,6 +216,7 @@
 				TargetAttributes = {
 					E253E3BE1ECD8B730076E8CA = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 48MS5X5EU8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -450,9 +451,11 @@
 			baseConfigurationReference = 1395529FDCB67FE74CABD4D4 /* Pods-mvvm-structure.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48MS5X5EU8;
 				INFOPLIST_FILE = "mvvm-structure/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hieuhuynh.mvvm-structure";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hieuhuynh.firenotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -463,9 +466,11 @@
 			baseConfigurationReference = 96A6D12C41E4DA85F6AF54B3 /* Pods-mvvm-structure.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 48MS5X5EU8;
 				INFOPLIST_FILE = "mvvm-structure/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.hieuhuynh.mvvm-structure";
+				PRODUCT_BUNDLE_IDENTIFIER = com.hieuhuynh.firenotes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
