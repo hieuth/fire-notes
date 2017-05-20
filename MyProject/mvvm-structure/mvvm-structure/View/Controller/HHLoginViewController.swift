@@ -29,7 +29,7 @@ class HHLoginViewController: UIViewController {
             DispatchQueue.main.async {
                 LoadingView.hide()
             }
-            guard error == nil, let usr = user else {
+            guard error == nil else {
                 if let strongSelf = self {
                     UIAlertController.showAlert(message: error!.localizedDescription, from: strongSelf)
                 }
@@ -38,12 +38,26 @@ class HHLoginViewController: UIViewController {
             if let strongSelf = self {
                 strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
             }
-            print(usr.debugDescription)
         }
     }
     // MARK: - Overriden 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            LoadingView.show("Logging in...")
+        }
+        FIRAuth.auth()!.addStateDidChangeListener() {[weak self] auth, user in
+            DispatchQueue.main.async {
+                LoadingView.hide()
+            }
+            if user != nil, let strongSelf = self {
+                strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
+            }
+        }
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        passwordField.text = ""
     }
     // MARK: - fileprivate methods    
     /// Call Firebase API to sign up a new user

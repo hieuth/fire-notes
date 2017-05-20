@@ -109,7 +109,7 @@
                     <connections>
                         <outlet property="emailField" destination="NEO-zN-IAV" id="2ZR-eY-BDY"/>
                         <outlet property="passwordField" destination="IAu-qr-NpG" id="PL0-9W-8Pw"/>
-                        <segue destination="I37-kN-Vg2" kind="show" identifier="LoginToList" id="jeD-nT-oWc"/>
+                        <segue destination="I37-kN-Vg2" kind="presentation" identifier="LoginToList" id="jeD-nT-oWc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -180,6 +180,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="SEF-ie-dv5">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="wV4-sV-MY6">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="logoutPressed:" destination="inn-iE-rPd" id="Ut4-cs-uat"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u7B-ni-otg">
                             <connections>
                                 <action selector="addButtonDidTouch:" destination="inn-iE-rPd" id="hNS-xv-yTu"/>

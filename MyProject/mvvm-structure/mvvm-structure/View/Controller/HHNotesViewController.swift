@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseDatabase
 
+
 class HHNotesViewController: UITableViewController {
     let ref = FIRDatabase.database().reference(withPath: "grocery-items")
     // MARK: Constants
@@ -71,9 +72,24 @@ class HHNotesViewController: UITableViewController {
             cell.detailTextLabel?.textColor = UIColor.gray
         }
     }
-    
+    // MARK: - Actions
+    // MARK: Logout
+    @IBAction func logoutPressed(_ sender: AnyObject) {
+        UIAlertController.show(in: self, withTitle: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout", otherButtonTitles: nil, popoverPresentationControllerBlock: nil) { [weak self](alertController, action, index) in
+            if index == UIAlertControllerBlocksDestructiveButtonIndex {
+                if let strongSelf = self {
+                    // perform logout
+                    do {
+                        try FIRAuth.auth()!.signOut()
+                        strongSelf.dismiss(animated: true, completion: nil)
+                    } catch {
+                        UIAlertController.showAlert(message: error.localizedDescription, from: strongSelf)
+                    }
+                }
+            }
+        }
+    }
     // MARK: Add Item
-    
     @IBAction func addButtonDidTouch(_ sender: AnyObject) {
         let alert = UIAlertController(title: "Grocery Item",
                                       message: "Add an Item",
