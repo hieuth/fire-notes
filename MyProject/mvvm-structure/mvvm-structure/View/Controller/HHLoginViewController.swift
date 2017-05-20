@@ -44,10 +44,9 @@ class HHLoginViewController: UIViewController {
             withEmail: email,
             password: password) { _, error in
                 if error == nil {
-                    FIRAuth.auth()!.signIn(withEmail: email,
-                                           password: password)
+                    UIAlertController.showAlert(withTitle: "Congrats!",message: "Your account was created", from: self)
                 } else {
-                    
+                    UIAlertController.showAlert(message: error?.localizedDescription, from: self)
                 }
         }
         

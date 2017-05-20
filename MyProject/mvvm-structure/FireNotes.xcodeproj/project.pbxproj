@@ -58,6 +58,7 @@
 		E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerExtension.swift; sourceTree = "<group>"; };
 		E2545FD41ED0066900CDA409 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
+		E2DBB4D11ED00863005DFA33 /* FireNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireNotes.entitlements; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +115,7 @@
 		E253E3C11ECD8B730076E8CA /* FireNotes */ = {
 			isa = PBXGroup;
 			children = (
+				E2DBB4D11ED00863005DFA33 /* FireNotes.entitlements */,
 				E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */,
 				E253E3DC1ECF563A0076E8CA /* Application */,
 				E253E3D81ECF2A8E0076E8CA /* Helper */,
@@ -275,6 +277,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 48MS5X5EU8;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -515,6 +522,7 @@
 			baseConfigurationReference = B660D86FBDB5B0BC79A5CF12 /* Pods-FireNotes.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireNotes.entitlements;
 				DEVELOPMENT_TEAM = 48MS5X5EU8;
 				INFOPLIST_FILE = "mvvm-structure/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -531,6 +539,7 @@
 			baseConfigurationReference = 8826E333525896117383A0BA /* Pods-FireNotes.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = FireNotes.entitlements;
 				DEVELOPMENT_TEAM = 48MS5X5EU8;
 				INFOPLIST_FILE = "mvvm-structure/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
