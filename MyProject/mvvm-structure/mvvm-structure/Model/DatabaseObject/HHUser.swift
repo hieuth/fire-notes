@@ -9,7 +9,7 @@
 import Foundation
 import FirebaseAuth
 
-struct User {
+struct HHUser {
     let uid: String
     let email: String
     init(authData: FIRUser) {

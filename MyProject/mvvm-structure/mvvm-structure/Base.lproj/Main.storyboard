@@ -115,13 +115,13 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="I37-kN-Vg2" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="57X-xF-OHW">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="57X-xF-OHW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.99607843139999996" green="0.77647058820000003" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
-                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="16"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
@@ -177,7 +177,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Notes" id="SEF-ie-dv5">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" style="plain" id="wV4-sV-MY6">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="wV4-sV-MY6">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="logoutPressed:" destination="inn-iE-rPd" id="Ut4-cs-uat"/>
@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="1982" y="30"/>
         </scene>
-        <!--New note-->
+        <!--Note-->
         <scene sceneID="pNj-oW-MAz">
             <objects>
                 <viewController id="wpm-Ad-yZi" customClass="HHNoteComposerViewController" customModule="FireNotes" customModuleProvider="target" sceneMemberID="viewController">
@@ -234,8 +234,8 @@
                             <constraint firstItem="kle-dx-muW" firstAttribute="top" secondItem="mMF-Vy-iNQ" secondAttribute="bottom" constant="2" id="zMQ-af-sKN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="New note" id="5gg-jS-SbY">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="WHv-ET-Z1S">
+                    <navigationItem key="navigationItem" title="Note" id="5gg-jS-SbY">
+                        <barButtonItem key="rightBarButtonItem" title="Done" style="done" id="WHv-ET-Z1S">
                             <connections>
                                 <action selector="doneButtonPressed" destination="wpm-Ad-yZi" id="Sja-nV-IcK"/>
                             </connections>

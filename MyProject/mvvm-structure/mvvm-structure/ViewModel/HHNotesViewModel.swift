@@ -17,7 +17,7 @@ class HHNotesViewModel {
     fileprivate var dataStateHandle: UInt = 0
     fileprivate var items: [HHNoteItem] = []
     fileprivate var isUpToDate = false
-    fileprivate var user: User?
+    fileprivate var user: HHUser?
     fileprivate var editingIndex = -1
     fileprivate let cellToComposer = "CellToComposer"
     // MARK: - Constructor
@@ -66,7 +66,7 @@ class HHNotesViewModel {
     func handleViewWillAppear() {
         authStateHandle = FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
-            self.user = User(authData: user)
+            self.user = HHUser(authData: user)
         }
     }
     func handleViewWillDisappear() {
