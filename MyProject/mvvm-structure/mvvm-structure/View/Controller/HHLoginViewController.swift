@@ -41,9 +41,15 @@ class HHLoginViewController: UIViewController {
             }
         }
     }
+    func viewTapped() {
+        view.endEditing(true)
+    }
     // MARK: - Overriden 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tapGestureRecognizer)
         DispatchQueue.main.async {
             LoadingView.show("Logging in...")
         }
