@@ -13,12 +13,6 @@
 		E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C61ECD8B730076E8CA /* Main.storyboard */; };
 		E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C91ECD8B730076E8CA /* Assets.xcassets */; };
 		E253E3CD1ECD8B730076E8CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */; };
-		E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */; };
-		E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */; };
-		E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */; };
-		E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */; };
-		E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */; };
-		E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */; };
 		E2545FC51ECFE96000CDA409 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */; };
 		E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */; };
 		E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */; };
@@ -52,12 +46,6 @@
 		E253E3C91ECD8B730076E8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		E253E3CC1ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E253E3CE1ECD8B730076E8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHBaseAPI.swift; sourceTree = "<group>"; };
-		E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseModel.swift; sourceTree = "<group>"; };
-		E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseError.swift; sourceTree = "<group>"; };
-		E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHAPICaller.swift; sourceTree = "<group>"; };
-		E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostListResponse.swift; sourceTree = "<group>"; };
-		E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHPostResponse.swift; sourceTree = "<group>"; };
 		E2545FC41ECFE96000CDA409 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHLoginViewController.swift; sourceTree = "<group>"; };
 		E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHNotesViewController.swift; sourceTree = "<group>"; };
@@ -149,8 +137,6 @@
 			isa = PBXGroup;
 			children = (
 				E2545FCA1ECFFC1500CDA409 /* DatabaseObject */,
-				E253E3E11ECF6B390076E8CA /* ResponseObject */,
-				E253E3DE1ECF5E650076E8CA /* Networking */,
 				E243B27E1ED19FDD00D1BE6F /* Settings.swift */,
 			);
 			path = Model;
@@ -215,26 +201,6 @@
 				E253E3C61ECD8B730076E8CA /* Main.storyboard */,
 			);
 			path = Storyboard;
-			sourceTree = "<group>";
-		};
-		E253E3DE1ECF5E650076E8CA /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */,
-				E253E3E61ECF786E0076E8CA /* HHAPICaller.swift */,
-			);
-			path = Networking;
-			sourceTree = "<group>";
-		};
-		E253E3E11ECF6B390076E8CA /* ResponseObject */ = {
-			isa = PBXGroup;
-			children = (
-				E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */,
-				E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */,
-				E253E3E81ECF790E0076E8CA /* HHPostListResponse.swift */,
-				E253E3EA1ECF79A90076E8CA /* HHPostResponse.swift */,
-			);
-			path = ResponseObject;
 			sourceTree = "<group>";
 		};
 		E2545FCA1ECFFC1500CDA409 /* DatabaseObject */ = {
@@ -397,7 +363,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "";
+			shellScript = "${PODS_ROOT}/SwiftLint/swiftlint";
 		};
 		E854C7FD8C5B6D8DC8B635F8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -438,23 +404,17 @@
 			files = (
 				E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */,
 				E2DBB4DC1ED00A7D005DFA33 /* NSObjectExtensions.swift in Sources */,
-				E253E3E91ECF790E0076E8CA /* HHPostListResponse.swift in Sources */,
 				E2DBB4E11ED037DB005DFA33 /* HHNoteComposerViewController.swift in Sources */,
-				E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */,
 				E2545FCF1ECFFD6000CDA409 /* HHUser.swift in Sources */,
-				E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */,
-				E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */,
 				E2545FCC1ECFFC3400CDA409 /* HHNoteItem.swift in Sources */,
 				E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */,
 				E2A430061ED21BA3001A7801 /* HHLoginViewModel.swift in Sources */,
 				E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */,
 				E25B5F0B1ED15CE20051BEBA /* Constants.swift in Sources */,
-				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
 				E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
 				E25B5F091ED13C2F0051BEBA /* Utils.swift in Sources */,
 				E2A430081ED21CE8001A7801 /* HHNotesViewModel.swift in Sources */,
-				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
 				E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */,
 				E243B27F1ED19FDD00D1BE6F /* Settings.swift in Sources */,
