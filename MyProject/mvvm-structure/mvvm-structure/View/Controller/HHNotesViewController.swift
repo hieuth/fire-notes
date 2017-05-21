@@ -12,7 +12,6 @@ import FirebaseDatabase
 class HHNotesViewController: UITableViewController {
     // MARK: Constants
     let cellToComposer = "CellToComposer"
-    let addToComposer = "AddToComposer"
     let notesRef = FIRDatabase.database().reference(withPath: "notes")
     // MARK: Properties
     var items: [HHNoteItem] = []
@@ -154,7 +153,9 @@ extension HHNotesViewController: HHNoteComposerVCDelegate {
         }
     }
     func updateNote(_ note: HHNoteItem) {
-        note.ref?.updateChildValues(note.toAnyObject() as! [AnyHashable : Any], withCompletionBlock: { [weak self](error, ref) in
+        var updateNote = note
+        updateNote.lastUpdated = Date().timeIntervalSince1970
+        updateNote.ref?.updateChildValues(updateNote.toAnyObject() as! [AnyHashable : Any], withCompletionBlock: { [weak self](error, ref) in
             guard self?.isUpToDate == false else {
                 return
             }
