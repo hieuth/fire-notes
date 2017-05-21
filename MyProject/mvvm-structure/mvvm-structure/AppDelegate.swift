@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FIRApp.configure()
+        // support offline data save
+        FIRDatabase.database().persistenceEnabled = true
         return true
     }
 }
