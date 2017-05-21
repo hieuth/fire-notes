@@ -6,7 +6,6 @@ def using_pods
   use_frameworks!
 
   # all pods defined here
-  pod 'SwiftLint'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
