@@ -3,7 +3,7 @@ A simple notes application that integrates FireBase Authentication and Real time
 
 *Main features:*
 - Allow user to sign up with email and password
-- Ofcourse, user can sign in with registered account
+- Of course, user can sign in with registered account
 - User can also sign out
 - User can create new note
 	+ save new note to FIREBASE
