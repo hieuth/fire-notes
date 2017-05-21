@@ -29,6 +29,7 @@
 		E25B5F091ED13C2F0051BEBA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B5F081ED13C2F0051BEBA /* Utils.swift */; };
 		E25B5F0B1ED15CE20051BEBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B5F0A1ED15CE20051BEBA /* Constants.swift */; };
 		E2A430061ED21BA3001A7801 /* HHLoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A430051ED21BA3001A7801 /* HHLoginViewModel.swift */; };
+		E2A430081ED21CE8001A7801 /* HHNotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2A430071ED21CE8001A7801 /* HHNotesViewModel.swift */; };
 		E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */; };
 		E2DBB4D81ED00A20005DFA33 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */; };
 		E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */; };
@@ -69,6 +70,7 @@
 		E25B5F081ED13C2F0051BEBA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E25B5F0A1ED15CE20051BEBA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E2A430051ED21BA3001A7801 /* HHLoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHLoginViewModel.swift; sourceTree = "<group>"; };
+		E2A430071ED21CE8001A7801 /* HHNotesViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHNotesViewModel.swift; sourceTree = "<group>"; };
 		E2DBB4D11ED00863005DFA33 /* FireNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireNotes.entitlements; sourceTree = SOURCE_ROOT; };
 		E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E2A430051ED21BA3001A7801 /* HHLoginViewModel.swift */,
+				E2A430071ED21CE8001A7801 /* HHNotesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -450,6 +453,7 @@
 				E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
 				E25B5F091ED13C2F0051BEBA /* Utils.swift in Sources */,
+				E2A430081ED21CE8001A7801 /* HHNotesViewModel.swift in Sources */,
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
 				E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */,
