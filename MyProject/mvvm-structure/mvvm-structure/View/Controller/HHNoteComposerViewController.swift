@@ -32,6 +32,10 @@ class HHNoteComposerViewController: UIViewController {
         titleTextField.text = note?.title
         contentTextView.text = note?.content
     }
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        titleTextField.becomeFirstResponder()
+    }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         var note = self.note
