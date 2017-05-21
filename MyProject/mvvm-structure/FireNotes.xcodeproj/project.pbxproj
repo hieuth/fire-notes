@@ -28,6 +28,7 @@
 		E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD11ED005DB00CDA409 /* AlertControllerExtension.swift */; };
 		E2545FD61ED0066900CDA409 /* UIAlertController+Blocks.m in Sources */ = {isa = PBXBuildFile; fileRef = E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */; };
 		E25B5F091ED13C2F0051BEBA /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B5F081ED13C2F0051BEBA /* Utils.swift */; };
+		E25B5F0B1ED15CE20051BEBA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25B5F0A1ED15CE20051BEBA /* Constants.swift */; };
 		E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */; };
 		E2DBB4D81ED00A20005DFA33 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */; };
 		E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2DBB4D91ED00A66005DFA33 /* UIViewExtensions.swift */; };
@@ -66,6 +67,7 @@
 		E2545FD41ED0066900CDA409 /* UIAlertController+Blocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertController+Blocks.h"; sourceTree = "<group>"; };
 		E2545FD51ED0066900CDA409 /* UIAlertController+Blocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertController+Blocks.m"; sourceTree = "<group>"; };
 		E25B5F081ED13C2F0051BEBA /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E25B5F0A1ED15CE20051BEBA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E2DBB4D11ED00863005DFA33 /* FireNotes.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FireNotes.entitlements; sourceTree = SOURCE_ROOT; };
 		E2DBB4D51ED00A20005DFA33 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		E2DBB4D61ED00A20005DFA33 /* LoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 				E2545FD31ED0066900CDA409 /* UIAlertController+Blocks */,
 				E2545FD01ED005DB00CDA409 /* Extensions */,
 				E25B5F081ED13C2F0051BEBA /* Utils.swift */,
+				E25B5F0A1ED15CE20051BEBA /* Constants.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				E2545FCC1ECFFC3400CDA409 /* HHNoteItem.swift in Sources */,
 				E2545FD21ED005DB00CDA409 /* AlertControllerExtension.swift in Sources */,
 				E2DBB4D71ED00A20005DFA33 /* LoadingView.swift in Sources */,
+				E25B5F0B1ED15CE20051BEBA /* Constants.swift in Sources */,
 				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
 				E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,

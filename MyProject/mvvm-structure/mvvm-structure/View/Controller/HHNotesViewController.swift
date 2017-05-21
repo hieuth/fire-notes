@@ -9,29 +9,26 @@
 import UIKit
 import FirebaseDatabase
 
-
 class HHNotesViewController: UITableViewController {
     // MARK: Constants
     let listToUsers = "ListToUsers"
-    let ref = FIRDatabase.database().reference(withPath: "notes")
+    let notesRef = FIRDatabase.database().reference(withPath: "notes")
     // MARK: Properties
     var items: [HHNoteItem] = []
     var user: User?
     var authStateHandle: FIRAuthStateDidChangeListenerHandle?
-    
     // MARK: Overriden
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsMultipleSelectionDuringEditing = false
+        // get data from FIR
+        notesRef.childByAutoId()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         authStateHandle = FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
             self.user = User(authData: user)
-            //            let currentUserRef = self.usersRef.child(self.user.uid)
-            //            currentUserRef.setValue(self.user.email)
-            //            currentUserRef.onDisconnectRemoveValue()
         }
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -45,7 +42,6 @@ class HHNotesViewController: UITableViewController {
             noteComposerVC.delegate = self
         }
     }
-    
     // MARK: - Actions
     // MARK: Logout
     @IBAction func logoutPressed(_ sender: AnyObject) {
@@ -63,41 +59,8 @@ class HHNotesViewController: UITableViewController {
             }
         }
     }
-    // MARK: Add Item
-    @IBAction func addButtonDidTouch(_ sender: AnyObject) {
-        let alert = UIAlertController(title: "Grocery Item",
-                                      message: "Add an Item",
-                                      preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(
-            title: "Save",
-            style: .default) { action in                
-                let textField = alert.textFields![0]
-                let groceryItem = HHNoteItem(title: textField.text!, content: "",
-                                             addedByUser: self.user?.email ?? "")
-                self.items.append(groceryItem)
-                self.tableView.reloadData()
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel",
-                                         style: .default)
-        
-        alert.addTextField()
-        
-        alert.addAction(saveAction)
-        alert.addAction(cancelAction)
-        
-        present(alert, animated: true, completion: nil)
-    }
-    
-    func userCountButtonDidTouch() {
-        performSegue(withIdentifier: listToUsers, sender: nil)
-    }
-
-    // MARK - fileprivate
-    
 }
-// MARK: UITableView Delegate methods
+// MARK: UITableView Delegate & Datasource methods
 extension HHNotesViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -106,7 +69,11 @@ extension HHNotesViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
         let noteItem = items[indexPath.row]
         cell.textLabel?.text = noteItem.title == "" ? noteItem.content : noteItem.title
-        cell.detailTextLabel?.text = noteItem.lastUpdatedDateString ?? "" + " \(noteItem.content ?? "")"
+        var detailText = "\(noteItem.content ?? "")"
+        if let lastUpdated = noteItem.lastUpdated {
+            detailText = Utils.dynamicDateString(from: lastUpdated) + " " + detailText
+        }
+        cell.detailTextLabel?.text = detailText
         return cell
     }
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -137,13 +104,10 @@ extension HHNotesViewController: HHNoteComposerVCDelegate {
         guard (titleCount + contentCount) > 0 else {
             return
         }
-        // generate a key for the note object from time
-        let key = "\(Int(Date().timeIntervalSince1970))"
-        // create a new note object from title, content and key
-        let noteObject = HHNoteItem(title: title ?? "", content: content ?? "", addedByUser: self.user?.email ?? "", key: key)
-        // create a new child ref from root ref node with the key
-        let noteItemRef = self.ref.child(noteObject.key!)
-        
+        // create a new note object from title, content
+        let noteObject = HHNoteItem(title: title ?? "", content: content ?? "", addedByUser: self.user?.email ?? "")
+        // create a new child ref from root ref node with auto gen key
+        let noteItemRef = self.notesRef.childByAutoId()
         // set value for the database ref
         noteItemRef.setValue(noteObject.toAnyObject())
         // insert new item to current list

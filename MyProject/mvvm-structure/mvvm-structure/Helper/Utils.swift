@@ -7,3 +7,20 @@
 //
 
 import Foundation
+struct Utils {
+    static func dynamicDateString(from date: Date) -> String {
+        let format = Calendar.current.isDateInToday(date)
+            ? Constants.timeFormatString
+            : Constants.dateFormatString
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+    
+    static func dateString(from date: Date) -> String {
+        let format = Constants.dateFormatString + " " + Constants.timeFormatString
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        return dateFormatter.string(from: date)
+    }
+}

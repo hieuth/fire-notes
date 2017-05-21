@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 
 struct HHNoteItem {
-    static let dateFormatString = "dd/MM/YY"
     let key: String!
     let title: String?
     let addedByUser: String?
@@ -21,9 +20,7 @@ struct HHNoteItem {
         guard let nonOptionalDate = lastUpdated else {
             return nil
         }
-        let dateFormat = DateFormatter.init()
-        dateFormat.dateFormat = HHNoteItem.dateFormatString
-        return dateFormat.string(from: nonOptionalDate)
+        return Utils.dateString(from: nonOptionalDate)
     }
     init(title: String, content: String, addedByUser: String, key: String = "") {
         self.key = key
@@ -42,7 +39,7 @@ struct HHNoteItem {
         content = snapshotValue?["content"] as? String
         if let lastUpdatedString = snapshotValue?["lastUpdated"] as? String {
             let format = DateFormatter()
-            format.dateFormat = HHNoteItem.dateFormatString
+            format.dateFormat = Constants.dateFormatString
             lastUpdated = format.date(from: lastUpdatedString)
         }
         ref = snapshot.ref
@@ -52,7 +49,6 @@ struct HHNoteItem {
             "title": title,
             "content": content,
             "addedByUser": addedByUser,
-            "key": key,
             "lastUpdated": lastUpdatedDateString
         ]
     }
