@@ -10,8 +10,9 @@ import UIKit
 import FirebaseAuth
 
 class HHLoginViewController: UIViewController {
-    // MARK: Constants
+    // MARK: Properties
     let loginToList = "LoginToList"
+    var authStateHandle: FIRAuthStateDidChangeListenerHandle?
     // MARK: - Outlets
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -51,9 +52,21 @@ class HHLoginViewController: UIViewController {
         view.isUserInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
+        
+        authStateHandle = FIRAuth.auth()!.addStateDidChangeListener() {[weak self] auth, user in
+            DispatchQueue.main.async {
+                LoadingView.hide()
+            }
+            if user != nil, let strongSelf = self {
+                strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
+            }
+        }
+        
         if let _ = FIRAuth.auth()?.currentUser {
             self.performSegue(withIdentifier: loginToList, sender: nil)
         }
+        
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -66,6 +79,9 @@ class HHLoginViewController: UIViewController {
     ///   - email: email
     ///   - password: password
     fileprivate func signupUser(email: String, password: String) {
+        if let handle = authStateHandle {
+            FIRAuth.auth()?.removeStateDidChangeListener(handle)
+        }
         LoadingView.show()
         FIRAuth.auth()!.createUser(
             withEmail: email,
