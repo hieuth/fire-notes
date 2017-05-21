@@ -15,7 +15,7 @@ struct HHNoteItem {
     let addedByUser: String?
     let content: String?
     var lastUpdated: Double?
-    let ref: FIRDatabaseReference?
+    var ref: FIRDatabaseReference?
     init(title: String, content: String, addedByUser: String, key: String = "") {
         self.key = key
         self.title = title

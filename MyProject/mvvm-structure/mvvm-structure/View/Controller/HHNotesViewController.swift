@@ -18,7 +18,6 @@ class HHNotesViewController: UITableViewController {
     var user: User?
     var authStateHandle: FIRAuthStateDidChangeListenerHandle?
     var dataStateHandle: UInt = 0
-//    var dataStateHandle: ?
     // MARK: Overriden
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +41,7 @@ class HHNotesViewController: UITableViewController {
         if let handle = authStateHandle {
             FIRAuth.auth()?.removeStateDidChangeListener(handle)
         }
-        self.notesRef.removeObserver(withHandle: handle)
+        self.notesRef.removeObserver(withHandle: dataStateHandle)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let noteComposerVC = segue.destination as? HHNoteComposerViewController {
@@ -72,7 +71,7 @@ class HHNotesViewController: UITableViewController {
     fileprivate func refreshData() {
         // get data from FIR
         let notesQuery = notesRef.queryOrdered(byChild: "lastUpdated")
-        notesQuery.observe(.value, with: { [weak self](snapshot) in
+        dataStateHandle =  notesQuery.observe(.value, with: { [weak self](snapshot) in
             self?.items.removeAll()
             for item in snapshot.children.reversed() {
                 let note = HHNoteItem(snapshot: item as! FIRDataSnapshot)
@@ -104,17 +103,13 @@ extension HHNotesViewController {
     }
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            items.remove(at: indexPath.row)
-            tableView.reloadData()
+            let noteObject = items[indexPath.row]
+            noteObject.ref?.removeValue()
+//            tableView.reloadData()
         }
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard tableView.cellForRow(at: indexPath) != nil else { return }
-        //        var groceryItem = items[indexPath.row]
-        //        let toggledCompletion = !groceryItem.completed
-        
-        //        toggleCellCheckbox(cell, isCompleted: toggledCompletion)
-        //        groceryItem.completed = toggledCompletion
         tableView.reloadData()
     }
 }
@@ -128,9 +123,10 @@ extension HHNotesViewController: HHNoteComposerVCDelegate {
             return
         }
         // create a new note object from title, content
-        let noteObject = HHNoteItem(title: title ?? "", content: content ?? "", addedByUser: self.user?.email ?? "")
+        var noteObject = HHNoteItem(title: title ?? "", content: content ?? "", addedByUser: self.user?.email ?? "")
         // create a new child ref from root ref node with auto gen key
         let noteItemRef = self.notesRef.childByAutoId()
+        noteObject.ref = noteItemRef
         // set value for the database ref
         noteItemRef.setValue(noteObject.toAnyObject())
         // insert new item to current list
