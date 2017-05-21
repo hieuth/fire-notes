@@ -2,7 +2,7 @@
 //  UIViewExtensions.swift
 //
 //  Created by Hieu Huynh on 2/14/17.
-//  Copyright © 2017 Kins Solutions. All rights reserved.
+//  All rights reserved.
 //
 
 import UIKit

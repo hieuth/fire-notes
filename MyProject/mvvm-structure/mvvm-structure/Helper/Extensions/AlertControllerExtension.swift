@@ -1,9 +1,8 @@
 //
 //  AlertControllerExtension.swift
-//  Teach With ANT
 //
 //  Created by Hieu Huynh on 4/13/17.
-//  Copyright © 2017 Fraternal Group Pte. Ltd. All rights reserved.
+//  All rights reserved.
 //
 
 import Foundation

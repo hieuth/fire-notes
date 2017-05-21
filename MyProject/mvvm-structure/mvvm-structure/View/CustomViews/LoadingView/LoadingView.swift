@@ -3,7 +3,7 @@
 //  AskNTeach
 //
 //  Created by Hieu Huynh on 4/26/16.
-//  Copyright © 2016 Kins Solutions. All rights reserved.
+//  All rights reserved.
 //
 
 import UIKit

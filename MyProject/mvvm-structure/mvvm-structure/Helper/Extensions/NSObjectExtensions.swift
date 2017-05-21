@@ -1,9 +1,8 @@
 //
 //  NSObjectExtensions.swift
-//  AntClient
 //
-//  Created by Hoang on 2/14/17.
-//  Copyright © 2017 Kins Solutions. All rights reserved.
+//  Created by Hieu huynh on 2/14/17.
+//  All rights reserved.
 //
 
 import Foundation
