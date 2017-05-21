@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 protocol HHNoteComposerVCDelegate {
-    func noteComposerDidFinishComposing(withTitle title: String?, content: String?)
+    func noteComposerDidFinishComposing(note: HHNoteItem)
 }
 
 class HHNoteComposerViewController: UIViewController {
     // MARK: - Properties
     var delegate: HHNoteComposerVCDelegate?
+    var note: HHNoteItem?
     // MARK: - Outlets
     @IBOutlet weak var textViewToBotConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleTextField: UITextField!
@@ -27,10 +29,18 @@ class HHNoteComposerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         registerForNotifications()
+        titleTextField.text = note?.title
+        contentTextView.text = note?.content
     }
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        delegate?.noteComposerDidFinishComposing(withTitle: titleTextField.text, content: contentTextView.text)
+        var note = self.note
+        if note == nil {
+            note = HHNoteItem(title: titleTextField.text, content: contentTextView.text, addedByUser: Settings.email)
+        }
+        note?.title = titleTextField.text
+        note?.content = contentTextView.text
+        delegate?.noteComposerDidFinishComposing(note: note!)
     }
     deinit {
         NotificationCenter.default.removeObserver(self)

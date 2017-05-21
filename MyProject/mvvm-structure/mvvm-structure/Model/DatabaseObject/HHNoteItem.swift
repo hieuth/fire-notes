@@ -11,12 +11,12 @@ import FirebaseDatabase
 
 struct HHNoteItem {
     let key: String!
-    let title: String?
+    var title: String?
     let addedByUser: String?
-    let content: String?
+    var content: String?
     var lastUpdated: Double?
     var ref: FIRDatabaseReference?
-    init(title: String, content: String, addedByUser: String, key: String = "") {
+    init(title: String?, content: String?, addedByUser: String?, key: String = "") {
         self.key = key
         self.title = title
         self.addedByUser = addedByUser

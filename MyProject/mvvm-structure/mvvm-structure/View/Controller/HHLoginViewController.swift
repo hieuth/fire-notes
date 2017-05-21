@@ -35,6 +35,7 @@ class HHLoginViewController: UIViewController {
                 }
                 return
             }
+            Settings.email = user?.email
             if let strongSelf = self {
                 strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
             }

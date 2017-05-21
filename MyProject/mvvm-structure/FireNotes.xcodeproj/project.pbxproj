@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		35972E00E27AA13C41B0C114 /* Pods_FireNotes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0E75D0870592900C67C242F /* Pods_FireNotes.framework */; };
 		7C51C3F131487A801FBD27FA /* Pods_mvvm_structure.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */; };
+		E243B27F1ED19FDD00D1BE6F /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E243B27E1ED19FDD00D1BE6F /* Settings.swift */; };
 		E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3C21ECD8B730076E8CA /* AppDelegate.swift */; };
 		E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C61ECD8B730076E8CA /* Main.storyboard */; };
 		E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C91ECD8B730076E8CA /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		AC14D522F9FC628F05BFC4CC /* Pods_mvvm_structure.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mvvm_structure.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B660D86FBDB5B0BC79A5CF12 /* Pods-FireNotes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FireNotes.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FireNotes/Pods-FireNotes.debug.xcconfig"; sourceTree = "<group>"; };
 		D0E75D0870592900C67C242F /* Pods_FireNotes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FireNotes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E243B27E1ED19FDD00D1BE6F /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		E253E3BF1ECD8B730076E8CA /* FireNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E253E3C21ECD8B730076E8CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../AppDelegate.swift; sourceTree = "<group>"; };
 		E253E3C71ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				E2545FCA1ECFFC1500CDA409 /* DatabaseObject */,
 				E253E3E11ECF6B390076E8CA /* ResponseObject */,
 				E253E3DE1ECF5E650076E8CA /* Networking */,
+				E243B27E1ED19FDD00D1BE6F /* Settings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
 				E2545FC71ECFEC1800CDA409 /* HHLoginViewController.swift in Sources */,
+				E243B27F1ED19FDD00D1BE6F /* Settings.swift in Sources */,
 				E2DBB4DF1ED036B5005DFA33 /* HHPaddingTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

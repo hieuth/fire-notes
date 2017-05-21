@@ -166,6 +166,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="wpm-Ad-yZi" kind="show" identifier="CellToComposer" id="dTv-RP-e1K"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -182,7 +185,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="u7B-ni-otg">
                             <connections>
-                                <segue destination="wpm-Ad-yZi" kind="show" id="9HI-Z1-jMd"/>
+                                <segue destination="wpm-Ad-yZi" kind="show" identifier="AddToComposer" id="9HI-Z1-jMd"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -249,4 +252,7 @@
             <point key="canvasLocation" x="2756" y="28.335832083958024"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="dTv-RP-e1K"/>
+    </inferredMetricsTieBreakers>
 </document>
