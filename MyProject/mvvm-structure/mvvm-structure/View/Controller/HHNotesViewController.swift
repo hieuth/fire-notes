@@ -17,12 +17,18 @@ class HHNotesViewController: UITableViewController {
     var items: [HHNoteItem] = []
     var user: User?
     var authStateHandle: FIRAuthStateDidChangeListenerHandle?
+    var dataStateHandle: UInt = 0
+//    var dataStateHandle: ?
     // MARK: Overriden
     override func viewDidLoad() {
         super.viewDidLoad()
+        refreshControl = UIRefreshControl()
         tableView.allowsMultipleSelectionDuringEditing = false
-        // get data from FIR
-        notesRef.childByAutoId()
+        refreshControl?.addTarget(self, action: #selector(controlDidRefresh), for: .valueChanged)
+        DispatchQueue.main.async {
+            self.refreshControl?.beginRefreshing()
+            self.refreshData()
+        }
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,6 +42,7 @@ class HHNotesViewController: UITableViewController {
         if let handle = authStateHandle {
             FIRAuth.auth()?.removeStateDidChangeListener(handle)
         }
+        self.notesRef.removeObserver(withHandle: handle)
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let noteComposerVC = segue.destination as? HHNoteComposerViewController {
@@ -43,7 +50,6 @@ class HHNotesViewController: UITableViewController {
         }
     }
     // MARK: - Actions
-    // MARK: Logout
     @IBAction func logoutPressed(_ sender: AnyObject) {
         UIAlertController.show(in: self, withTitle: "Logout", message: "Are you sure you want to logout?", preferredStyle: .alert, cancelButtonTitle: "Cancel", destructiveButtonTitle: "Logout", otherButtonTitles: nil, popoverPresentationControllerBlock: nil) { [weak self](alertController, action, index) in
             if index == UIAlertControllerBlocksDestructiveButtonIndex {
@@ -58,6 +64,23 @@ class HHNotesViewController: UITableViewController {
                 }
             }
         }
+    }
+    // MARK: - fileprivate functions
+    @objc fileprivate func controlDidRefresh() {
+        refreshData()
+    }
+    fileprivate func refreshData() {
+        // get data from FIR
+        let notesQuery = notesRef.queryOrdered(byChild: "lastUpdated")
+        notesQuery.observe(.value, with: { [weak self](snapshot) in
+            self?.items.removeAll()
+            for item in snapshot.children.reversed() {
+                let note = HHNoteItem(snapshot: item as! FIRDataSnapshot)
+                self?.items.append(note)
+            }
+            self?.tableView.reloadData()
+            self?.refreshControl?.endRefreshing()
+        })
     }
 }
 // MARK: UITableView Delegate & Datasource methods

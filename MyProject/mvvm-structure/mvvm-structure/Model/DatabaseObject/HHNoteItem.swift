@@ -14,21 +14,15 @@ struct HHNoteItem {
     let title: String?
     let addedByUser: String?
     let content: String?
-    var lastUpdated: Date?
+    var lastUpdated: Double?
     let ref: FIRDatabaseReference?
-    var lastUpdatedDateString: String? {
-        guard let nonOptionalDate = lastUpdated else {
-            return nil
-        }
-        return Utils.dateString(from: nonOptionalDate)
-    }
     init(title: String, content: String, addedByUser: String, key: String = "") {
         self.key = key
         self.title = title
         self.addedByUser = addedByUser
         self.ref = nil
         self.content = content
-        self.lastUpdated = Date()
+        self.lastUpdated = Date().timeIntervalSince1970
     }
     init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
@@ -37,19 +31,15 @@ struct HHNoteItem {
         title = snapshotValue?["title"] as? String
         addedByUser = snapshotValue?["addedByUser"] as? String
         content = snapshotValue?["content"] as? String
-        if let lastUpdatedString = snapshotValue?["lastUpdated"] as? String {
-            let format = DateFormatter()
-            format.dateFormat = Constants.dateFormatString
-            lastUpdated = format.date(from: lastUpdatedString)
-        }
+        lastUpdated = snapshotValue?["lastUpdated"] as? Double
         ref = snapshot.ref
     }
     func toAnyObject() -> Any {
         return [
-            "title": title,
-            "content": content,
-            "addedByUser": addedByUser,
-            "lastUpdated": lastUpdatedDateString
+            "title": title ?? "",
+            "content": content ?? "",
+            "addedByUser": addedByUser ?? "",
+            "lastUpdated": lastUpdated ?? 0
         ]
     }
 }
