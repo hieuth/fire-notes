@@ -10,7 +10,7 @@ import UIKit
 
 
 class LoadingView: UIView {
-    static weak var _activityView:LoadingView? = nil
+    static weak var activityIndicatorView:LoadingView? = nil
     static var count = 0
 
     @IBOutlet weak var label: UILabel!
@@ -24,8 +24,10 @@ class LoadingView: UIView {
         //TODO: Uncomment
         //guard appDelegate.networkReachability.isReachable() else {return}
         // alloc a view if it hasn't existed
-        if _activityView == nil {
-            let activityView = LoadingView.view(withNibName: LoadingView.name()) as LoadingView
+        if activityIndicatorView == nil {
+            guard let activityView = LoadingView.view(withNibName: LoadingView.name()) as? LoadingView else {
+                return
+            }
             activityView.alpha = 0
             activityView.translatesAutoresizingMaskIntoConstraints = false
             // add view to window
@@ -44,20 +46,20 @@ class LoadingView: UIView {
                 window.addConstraints(verticalConstraints)
                 window.addConstraints(horizontalConstraints)
             }
-            _activityView = activityView
+            activityIndicatorView = activityView
         }
         if let labelText = title {
-            _activityView?.label.text = labelText
+            activityIndicatorView?.label.text = labelText
         } else {
-            _activityView?.label.text = "Loading..."
+            activityIndicatorView?.label.text = "Loading..."
         }
         let window = UIApplication.shared.keyWindow!
-        window.bringSubview(toFront: _activityView!)
+        window.bringSubview(toFront: activityIndicatorView!)
         // show the activity indicator
         count += 1
-        _activityView?.isHidden = false
+        activityIndicatorView?.isHidden = false
         UIView.animate(withDuration: 0.2, animations: {
-            _activityView?.alpha = 1.0
+            activityIndicatorView?.alpha = 1.0
         })
     }
     
@@ -67,9 +69,9 @@ class LoadingView: UIView {
         if count <= 0 {
             count = 0
             UIView.animate(withDuration: 0.2, animations: {
-                _activityView?.alpha = 0
+                activityIndicatorView?.alpha = 0
                 }, completion: { (finished) in
-                _activityView?.isHidden = true
+                activityIndicatorView?.isHidden = true
             })
         }
     }
