@@ -83,10 +83,19 @@ class HHNotesViewController: UITableViewController {
     }
     fileprivate func refreshData() {
         // get data from FIR
-        let notesQuery = notesRef.queryOrdered(byChild: "lastUpdated")
+        // create a query that order data by last updated date
+        let notesQuery = notesRef.queryOrdered(byChild:"lastUpdated")
+        // observe query to get data
         dataStateHandle =  notesQuery.observe(.value, with: { [weak self](snapshot) in
             self?.items.removeAll()
-            for item in snapshot.children.reversed() {
+            // filter only notes from this user
+            let array = snapshot.children.filter{ item -> Bool in
+                let snpShot = item as! FIRDataSnapshot
+                let value = snpShot.value as! [String: AnyObject]
+                return (value["addedByUser"] as! String) == Settings.email
+            }
+            // iterate through items to add to current list
+            for item in array.reversed() { // reverse the list to make newest displayed first
                 let note = HHNoteItem(snapshot: item as! FIRDataSnapshot)
                 self?.items.append(note)
             }
