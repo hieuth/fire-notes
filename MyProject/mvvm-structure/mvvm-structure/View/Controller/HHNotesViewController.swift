@@ -11,32 +11,34 @@ import FirebaseDatabase
 
 
 class HHNotesViewController: UITableViewController {
-    let ref = FIRDatabase.database().reference(withPath: "grocery-items")
     // MARK: Constants
     let listToUsers = "ListToUsers"
+    let ref = FIRDatabase.database().reference(withPath: "notes")
     // MARK: Properties
     var items: [HHNoteItem] = []
-    var user: User!
-//    var userCountBarButtonItem: UIBarButtonItem!
+    var user: User?
+    var authStateHandle: FIRAuthStateDidChangeListenerHandle?
+    
     // MARK: Overriden
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.allowsMultipleSelectionDuringEditing = false
-//        userCountBarButtonItem = UIBarButtonItem(title: "1",
-//                                                 style: .plain,
-//                                                 target: self,
-//                                                 action: #selector(userCountButtonDidTouch))
-//        userCountBarButtonItem.tintColor = UIColor.white
-//        navigationItem.leftBarButtonItem = userCountBarButtonItem
-        FIRAuth.auth()!.addStateDidChangeListener { auth, user in
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        authStateHandle = FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
             self.user = User(authData: user)
-//            let currentUserRef = self.usersRef.child(self.user.uid)
-//            currentUserRef.setValue(self.user.email)
-//            currentUserRef.onDisconnectRemoveValue()
+            //            let currentUserRef = self.usersRef.child(self.user.uid)
+            //            currentUserRef.setValue(self.user.email)
+            //            currentUserRef.onDisconnectRemoveValue()
         }
-
-        user = User(uid: "FakeId", email: "hungry@person.food")
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if let handle = authStateHandle {
+            FIRAuth.auth()?.removeStateDidChangeListener(handle)
+        }
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let noteComposerVC = segue.destination as? HHNoteComposerViewController {
@@ -44,17 +46,6 @@ class HHNotesViewController: UITableViewController {
         }
     }
     
-    func toggleCellCheckbox(_ cell: UITableViewCell, isCompleted: Bool) {
-        if !isCompleted {
-            cell.accessoryType = .none
-            cell.textLabel?.textColor = UIColor.black
-            cell.detailTextLabel?.textColor = UIColor.black
-        } else {
-            cell.accessoryType = .checkmark
-            cell.textLabel?.textColor = UIColor.gray
-            cell.detailTextLabel?.textColor = UIColor.gray
-        }
-    }
     // MARK: - Actions
     // MARK: Logout
     @IBAction func logoutPressed(_ sender: AnyObject) {
@@ -82,8 +73,8 @@ class HHNotesViewController: UITableViewController {
             title: "Save",
             style: .default) { action in                
                 let textField = alert.textFields![0]
-                let groceryItem = HHNoteItem(name: textField.text!, content: "",
-                                             addedByUser: self.user.email)
+                let groceryItem = HHNoteItem(title: textField.text!, content: "",
+                                             addedByUser: self.user?.email ?? "")
                 self.items.append(groceryItem)
                 self.tableView.reloadData()
         }
@@ -114,8 +105,8 @@ extension HHNotesViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ItemCell", for: indexPath)
         let noteItem = items[indexPath.row]
-        cell.textLabel?.text = noteItem.name
-        cell.detailTextLabel?.text = noteItem.lastUpdatedDateString + " \(noteItem.content)"
+        cell.textLabel?.text = noteItem.title == "" ? noteItem.content : noteItem.title
+        cell.detailTextLabel?.text = noteItem.lastUpdatedDateString ?? "" + " \(noteItem.content ?? "")"
         return cell
     }
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -142,10 +133,20 @@ extension HHNotesViewController: HHNoteComposerVCDelegate {
     func noteComposerDidFinishComposing(withTitle title: String?, content: String?) {
         let titleCount = title?.characters.count ?? 0
         let contentCount = content?.characters.count ?? 0
+        // ensure at least 1 characters was input for both title and content
         guard (titleCount + contentCount) > 0 else {
             return
         }
-        let noteObject = HHNoteItem(name: title ?? "", content: content ?? "", addedByUser: self.user.email)
+        // generate a key for the note object from time
+        let key = "\(Int(Date().timeIntervalSince1970))"
+        // create a new note object from title, content and key
+        let noteObject = HHNoteItem(title: title ?? "", content: content ?? "", addedByUser: self.user?.email ?? "", key: key)
+        // create a new child ref from root ref node with the key
+        let noteItemRef = self.ref.child(noteObject.key!)
+        
+        // set value for the database ref
+        noteItemRef.setValue(noteObject.toAnyObject())
+        // insert new item to current list
         items.insert(noteObject, at: 0)
         self.tableView.reloadData()
     }

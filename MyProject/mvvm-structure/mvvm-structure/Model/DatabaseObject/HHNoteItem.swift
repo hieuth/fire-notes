@@ -10,20 +10,24 @@ import UIKit
 import FirebaseDatabase
 
 struct HHNoteItem {
-    let key: String
-    let name: String
-    let addedByUser: String
-    let content: String
-    let lastUpdated: Date
+    static let dateFormatString = "dd/MM/YY"
+    let key: String!
+    let title: String?
+    let addedByUser: String?
+    let content: String?
+    var lastUpdated: Date?
     let ref: FIRDatabaseReference?
-    var lastUpdatedDateString: String {
+    var lastUpdatedDateString: String? {
+        guard let nonOptionalDate = lastUpdated else {
+            return nil
+        }
         let dateFormat = DateFormatter.init()
-        dateFormat.dateFormat = "dd/MM/YY"
-        return dateFormat.string(from: lastUpdated)
+        dateFormat.dateFormat = HHNoteItem.dateFormatString
+        return dateFormat.string(from: nonOptionalDate)
     }
-    init(name: String, content: String, addedByUser: String, key: String = "") {
+    init(title: String, content: String, addedByUser: String, key: String = "") {
         self.key = key
-        self.name = name
+        self.title = title
         self.addedByUser = addedByUser
         self.ref = nil
         self.content = content
@@ -32,18 +36,24 @@ struct HHNoteItem {
     init(snapshot: FIRDataSnapshot) {
         key = snapshot.key
         // swiftlint:disable force_cast
-        let snapshotValue = snapshot.value as! [String: AnyObject]
-        name = snapshotValue["name"] as! String
-        addedByUser = snapshotValue["addedByUser"] as! String
-        content = snapshotValue["content"] as! String
-        // TODO: get last updated date from FIR
-        lastUpdated = Date()
+        let snapshotValue = snapshot.value as? [String: AnyObject]
+        title = snapshotValue?["title"] as? String
+        addedByUser = snapshotValue?["addedByUser"] as? String
+        content = snapshotValue?["content"] as? String
+        if let lastUpdatedString = snapshotValue?["lastUpdated"] as? String {
+            let format = DateFormatter()
+            format.dateFormat = HHNoteItem.dateFormatString
+            lastUpdated = format.date(from: lastUpdatedString)
+        }
         ref = snapshot.ref
     }
     func toAnyObject() -> Any {
         return [
-            "name": name,
-            "addedByUser": addedByUser
+            "title": title,
+            "content": content,
+            "addedByUser": addedByUser,
+            "key": key,
+            "lastUpdated": lastUpdatedDateString
         ]
     }
 }
