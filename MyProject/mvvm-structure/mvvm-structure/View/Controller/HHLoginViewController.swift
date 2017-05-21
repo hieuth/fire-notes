@@ -23,6 +23,7 @@ class HHLoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     @IBAction func loginPressed() {
+        view.endEditing(true)
         // perform login
         LoadingView.show("Logging in...")
         FIRAuth.auth()!.signIn(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, error) in
@@ -50,16 +51,8 @@ class HHLoginViewController: UIViewController {
         view.isUserInteractionEnabled = true
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
         view.addGestureRecognizer(tapGestureRecognizer)
-        DispatchQueue.main.async {
-            LoadingView.show("Logging in...")
-        }
-        FIRAuth.auth()!.addStateDidChangeListener() {[weak self] auth, user in
-            DispatchQueue.main.async {
-                LoadingView.hide()
-            }
-            if user != nil, let strongSelf = self {
-                strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
-            }
+        if let _ = FIRAuth.auth()?.currentUser {
+            self.performSegue(withIdentifier: loginToList, sender: nil)
         }
     }
     override func viewWillAppear(_ animated: Bool) {
