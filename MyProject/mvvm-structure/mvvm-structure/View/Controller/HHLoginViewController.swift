@@ -17,7 +17,6 @@ class HHLoginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     // MARK: - Actions
-    /// Show sign up popup
     @IBAction func signUpPressed() {
         let alert = createSignUpAlert()
         // present alert
@@ -25,6 +24,7 @@ class HHLoginViewController: UIViewController {
     }
     @IBAction func loginPressed() {
         view.endEditing(true)
+        // TODO: Validate email & password before call API
         // perform login
         LoadingView.show("Logging in...")
         FIRAuth.auth()!.signIn(withEmail: emailField.text!, password: passwordField.text!) {[weak self] (user, error) in
@@ -43,36 +43,32 @@ class HHLoginViewController: UIViewController {
             }
         }
     }
-    func viewTapped() {
-        view.endEditing(true)
-    }
     // MARK: - Overriden 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.isUserInteractionEnabled = true
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        view.addGestureRecognizer(tapGestureRecognizer)
-        
+        setupGestures()
+        // check user login status
         authStateHandle = FIRAuth.auth()!.addStateDidChangeListener() {[weak self] auth, user in
-            DispatchQueue.main.async {
-                LoadingView.hide()
-            }
             if user != nil, let strongSelf = self {
                 strongSelf.performSegue(withIdentifier: strongSelf.loginToList, sender: nil)
             }
         }
-        
-        if let _ = FIRAuth.auth()?.currentUser {
-            self.performSegue(withIdentifier: loginToList, sender: nil)
-        }
-        
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         passwordField.text = ""
     }
-    // MARK: - fileprivate methods    
+    // MARK: - fileprivate methods
+    /// Setup gestures in the view
+    func setupGestures() {
+        view.isUserInteractionEnabled = true
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
+        view.addGestureRecognizer(tapGestureRecognizer)
+    }
+    /// Handle view tapped to hide keyboard
+    @objc fileprivate func viewTapped() {
+        view.endEditing(true)
+    }
     /// Call Firebase API to sign up a new user
     ///
     /// - Parameters:
@@ -128,5 +124,4 @@ class HHLoginViewController: UIViewController {
         alert.addAction(cancelAction)
         return alert
     }
-
 }

@@ -13,7 +13,6 @@
 		E253E3C81ECD8B730076E8CA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C61ECD8B730076E8CA /* Main.storyboard */; };
 		E253E3CA1ECD8B730076E8CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E253E3C91ECD8B730076E8CA /* Assets.xcassets */; };
 		E253E3CD1ECD8B730076E8CA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E253E3CB1ECD8B730076E8CA /* LaunchScreen.storyboard */; };
-		E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DA1ECF56170076E8CA /* RootViewController.swift */; };
 		E253E3E01ECF5EAB0076E8CA /* HHBaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */; };
 		E253E3E31ECF6B580076E8CA /* HHResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */; };
 		E253E3E51ECF6BBB0076E8CA /* HHResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */; };
@@ -51,7 +50,6 @@
 		E253E3C91ECD8B730076E8CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		E253E3CC1ECD8B730076E8CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E253E3CE1ECD8B730076E8CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		E253E3DA1ECF56170076E8CA /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		E253E3DF1ECF5EAB0076E8CA /* HHBaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHBaseAPI.swift; sourceTree = "<group>"; };
 		E253E3E21ECF6B580076E8CA /* HHResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseModel.swift; sourceTree = "<group>"; };
 		E253E3E41ECF6BBB0076E8CA /* HHResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HHResponseError.swift; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 		E253E3D91ECF56170076E8CA /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E253E3DA1ECF56170076E8CA /* RootViewController.swift */,
 				E2545FC61ECFEC1800CDA409 /* HHLoginViewController.swift */,
 				E2545FC81ECFF8ED00CDA409 /* HHNotesViewController.swift */,
 				E2DBB4E01ED037DB005DFA33 /* HHNoteComposerViewController.swift */,
@@ -448,7 +445,6 @@
 				E253E3EB1ECF79A90076E8CA /* HHPostResponse.swift in Sources */,
 				E2DBB4DA1ED00A66005DFA33 /* UIViewExtensions.swift in Sources */,
 				E253E3C31ECD8B730076E8CA /* AppDelegate.swift in Sources */,
-				E253E3DB1ECF56170076E8CA /* RootViewController.swift in Sources */,
 				E25B5F091ED13C2F0051BEBA /* Utils.swift in Sources */,
 				E253E3E71ECF786E0076E8CA /* HHAPICaller.swift in Sources */,
 				E2545FC91ECFF8ED00CDA409 /* HHNotesViewController.swift in Sources */,
